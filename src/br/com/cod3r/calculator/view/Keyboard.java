@@ -20,6 +20,10 @@ public class Keyboard extends JPanel {
 		
 		setLayout(layout);
 		
+		constraints.weightx = 1;
+		constraints.weighty = 1;
+		constraints.fill = GridBagConstraints.BOTH;
+		
 		int keyNumber = 1;
 		
 		for(int r = 3; r > 0; r--) {
@@ -29,15 +33,16 @@ public class Keyboard extends JPanel {
 			}
 		}
 		
+		constraints.gridwidth = 3;
 		addButton("AC", DARK_GRAY, constraints, 0, 0);
-		addButton("+/-", DARK_GRAY, constraints, 1, 0);
-		addButton("%", DARK_GRAY, constraints, 2, 0);
+		constraints.gridwidth = 1;
 		addButton("/", DARK_GRAY, constraints, 3, 0);
 		addButton("*", ORANGE, constraints, 3, 1);
 		addButton("-", ORANGE, constraints, 3, 2);
 		addButton("+", ORANGE, constraints, 3, 3);
-		addButton("0", LIGHT_GRAY, constraints, 1, 4);
+		constraints.gridwidth = 2;
 		addButton("0", LIGHT_GRAY, constraints, 0, 4);
+		constraints.gridwidth = 1;
 		addButton(",", LIGHT_GRAY, constraints, 2, 4);
 		addButton("=", ORANGE, constraints, 3, 4);
 		
