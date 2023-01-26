@@ -7,6 +7,8 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import br.com.cod3r.calculator.model.Memory;
+
 public class Display extends JPanel {
 
 	private static final long serialVersionUID = 628545618882341176L;
@@ -15,7 +17,7 @@ public class Display extends JPanel {
 	
 	public Display() {
 		setBackground(new Color(46, 49, 50));
-		label = new JLabel("1134,68");
+		label = new JLabel(Memory.getInstance().getCurrentText());
 		label.setForeground(Color.WHITE);
 		label.setFont(new Font("monospaced", Font.BOLD, 30));
 		
