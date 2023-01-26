@@ -3,10 +3,13 @@ package br.com.cod3r.calculator.view;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class Keyboard extends JPanel {
+public class Keyboard extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = -8061589783356451060L;
 	
@@ -53,7 +56,17 @@ public class Keyboard extends JPanel {
 		c.gridy = y;
 		
 		Button button = new Button(text, color);
+		button.addActionListener(this);
 		add(button, c);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() instanceof JButton) {
+			JButton button = (JButton) e.getSource();
+			System.out.println(button.getText());
+		}
+		
 	}
 
 }
