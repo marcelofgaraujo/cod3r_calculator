@@ -8,8 +8,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import br.com.cod3r.calculator.model.Memory;
+import br.com.cod3r.calculator.model.ObserverMemory;
 
-public class Display extends JPanel {
+public class Display extends JPanel implements ObserverMemory {
 
 	private static final long serialVersionUID = 628545618882341176L;
 	
@@ -24,6 +25,12 @@ public class Display extends JPanel {
 		setLayout(new FlowLayout(FlowLayout.RIGHT, 10, 15));
 		
 		add(label);
+	}
+
+	@Override
+	public void changedValue(String newValue) {
+		label.setText(newValue);
+		
 	}
 
 }
