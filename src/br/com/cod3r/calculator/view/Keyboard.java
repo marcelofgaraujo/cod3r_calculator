@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import br.com.cod3r.calculator.model.Memory;
+
 public class Keyboard extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = -8061589783356451060L;
@@ -64,7 +66,7 @@ public class Keyboard extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() instanceof JButton) {
 			JButton button = (JButton) e.getSource();
-			System.out.println(button.getText());
+			Memory.getInstance().processCommand(button.getText());
 		}
 		
 	}

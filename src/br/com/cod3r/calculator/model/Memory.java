@@ -20,8 +20,13 @@ public class Memory {
 		return currentText.isEmpty() ? "0" : currentText;
 	}
 	
-	private void addObserver(ObserverMemory obs) {
+	public void addObserver(ObserverMemory obs) {
 		observers.add(obs);
+	}
+	
+	public void processCommand(String value) {
+		currentText += value;
+		observers.forEach(obs -> obs.changedValue(currentText));
 	}
 	
 }
