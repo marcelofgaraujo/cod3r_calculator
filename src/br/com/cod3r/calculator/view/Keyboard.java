@@ -20,6 +20,14 @@ public class Keyboard extends JPanel {
 		
 		setLayout(layout);
 		
+		int keyNumber = 1;
+		
+		for(int r = 3; r > 0; r--) {
+			for(int c = 0; c <= 2; c++) {
+				addButton(keyNumber + "", LIGHT_GRAY, constraints, c, r);
+				keyNumber++;
+			}
+		}
 		
 	}
 	
