@@ -29,6 +29,18 @@ public class Keyboard extends JPanel {
 			}
 		}
 		
+		addButton("AC", DARK_GRAY, constraints, 0, 0);
+		addButton("+/-", DARK_GRAY, constraints, 1, 0);
+		addButton("%", DARK_GRAY, constraints, 2, 0);
+		addButton("/", DARK_GRAY, constraints, 3, 0);
+		addButton("*", ORANGE, constraints, 3, 1);
+		addButton("-", ORANGE, constraints, 3, 2);
+		addButton("+", ORANGE, constraints, 3, 3);
+		addButton("0", LIGHT_GRAY, constraints, 1, 4);
+		addButton("0", LIGHT_GRAY, constraints, 0, 4);
+		addButton(",", LIGHT_GRAY, constraints, 2, 4);
+		addButton("=", ORANGE, constraints, 3, 4);
+		
 	}
 	
 	private void addButton(String text, Color color, GridBagConstraints c, int x, int y) {
