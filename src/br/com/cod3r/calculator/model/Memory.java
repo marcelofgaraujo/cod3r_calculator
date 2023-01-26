@@ -25,8 +25,13 @@ public class Memory {
 	}
 	
 	public void processCommand(String value) {
-		currentText += value;
-		observers.forEach(obs -> obs.changedValue(currentText));
+		if("AC".equals(value)) {
+			currentText = "";
+		} else {
+			currentText += value;			
+		}
+		
+		observers.forEach(obs -> obs.changedValue(getCurrentText()));
 	}
 	
 }
