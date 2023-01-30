@@ -53,7 +53,7 @@ public class Memory {
 	}
 
 	private String getOperationResult() {
-		if(lastOperation == null) {
+		if(lastOperation == null || lastOperation == TypedCommand.EQUAL) {
 			return currentText;
 		}
 		
