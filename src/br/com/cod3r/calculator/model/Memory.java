@@ -7,8 +7,11 @@ public class Memory {
 
 	private static final Memory instance = new Memory();
 	private final List<ObserverMemory> observers = new ArrayList<>();
-
-	String currentText = "";
+	
+	private TypedCommand lastOperation = null;
+	private boolean replace = false;
+	private String bufferText = "";
+	private String currentText = "";
 
 	private Memory() {
 	}
@@ -29,10 +32,16 @@ public class Memory {
 
 		TypedCommand typedCommand = detectTypedCommand(value);
 
-		if ("AC".equals(value)) {
+		if(typedCommand == null) {
+			return;
+		} else if(typedCommand == TypedCommand.RESET) {
 			currentText = "";
-		} else {
-			currentText += value;
+			bufferText = "";
+			replace = false;
+			lastOperation = null;
+		} else if(typedCommand == TypedCommand.NUMBER || typedCommand == TypedCommand.COMMA) {
+			currentText = replace ? value : currentText + value;
+			replace = false;
 		}
 
 		observers.forEach(obs -> obs.changedValue(getCurrentText()));
