@@ -2,7 +2,7 @@
 <p>A simple Calculator with 4 operations (sum, multiplication, subtraction and division), plus-minus signal change and AC button. This project was introduced by Java Cod3r Course.</p>
 <h2>Technologies</h2>
 <ul><li>Java SE 17</li>
-<li>Java Swing</li>
+<li>Java Swing</li></ul>
 <h2>Achievements</h2>
 Strong use of Java Swing and its features.<br>
 Reinforcement of the use of observable pattern in Java.<br>
