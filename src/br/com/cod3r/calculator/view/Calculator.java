@@ -13,7 +13,7 @@ public class Calculator extends JFrame {
 		
 		arrangeLayout();
 		
-		setSize(232, 322);
+		setSize(352, 350);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setVisible(true);
