@@ -76,7 +76,7 @@ public class Memory {
 		
 		String stringResult = Double.toString(result).replace(".", ",");
 		boolean integer = stringResult.endsWith(",0");
-		return integer ? stringResult.replace(",0", "") : currentText;
+		return integer ? stringResult.replace(",0", "") : stringResult;
 	}
 
 	private TypedCommand detectTypedCommand(String value) {
