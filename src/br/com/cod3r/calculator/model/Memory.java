@@ -39,6 +39,8 @@ public class Memory {
 			bufferText = "";
 			replace = false;
 			lastOperation = null;
+		} else if(typedCommand == TypedCommand.SIGNAL) {
+			currentText = currentText.contains("-") ? currentText.substring(1) : "-" + currentText;
 		} else if(typedCommand == TypedCommand.NUMBER || typedCommand == TypedCommand.COMMA) {
 			currentText = replace ? value : currentText + value;
 			replace = false;
@@ -98,6 +100,8 @@ public class Memory {
 				return TypedCommand.SUB;
 			} else if ("=".equals(value)) {
 				return TypedCommand.EQUAL;
+			} else if ("±".equals(value)) {
+				return TypedCommand.SIGNAL;
 			} else if (",".equals(value) && !currentText.contains(",")) {
 				return TypedCommand.COMMA;
 			}

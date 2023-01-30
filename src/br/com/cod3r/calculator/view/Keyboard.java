@@ -38,9 +38,10 @@ public class Keyboard extends JPanel implements ActionListener {
 			}
 		}
 		
-		constraints.gridwidth = 3;
+		constraints.gridwidth = 2;
 		addButton("AC", DARK_GRAY, constraints, 0, 0);
 		constraints.gridwidth = 1;
+		addButton("±", DARK_GRAY, constraints, 2, 0);
 		addButton("/", DARK_GRAY, constraints, 3, 0);
 		addButton("*", ORANGE, constraints, 3, 1);
 		addButton("-", ORANGE, constraints, 3, 2);
