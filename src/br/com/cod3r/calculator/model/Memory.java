@@ -42,9 +42,38 @@ public class Memory {
 		} else if(typedCommand == TypedCommand.NUMBER || typedCommand == TypedCommand.COMMA) {
 			currentText = replace ? value : currentText + value;
 			replace = false;
+		} else {
+			replace = true;
+			currentText = getOperationResult();
+			bufferText = currentText;
+			lastOperation = typedCommand;
 		}
 
 		observers.forEach(obs -> obs.changedValue(getCurrentText()));
+	}
+
+	private String getOperationResult() {
+		if(lastOperation == null) {
+			return currentText;
+		}
+		
+		double bufferNumber = Double.parseDouble(bufferText.replace(",", "."));
+		double currentNumber = Double.parseDouble(currentText.replace(",", "."));
+		double result = 0;
+		
+		if(lastOperation == TypedCommand.SUM) {
+			result = bufferNumber + currentNumber;
+		} else if(lastOperation == TypedCommand.SUB) {
+			result = bufferNumber - currentNumber;
+		} else if(lastOperation == TypedCommand.MULT) {
+			result = bufferNumber * currentNumber;
+		} else if(lastOperation == TypedCommand.DIV) {
+			result = bufferNumber / currentNumber;
+		}
+		
+		String stringResult = Double.toString(result).replace(".", ",");
+		
+		return stringResult;
 	}
 
 	private TypedCommand detectTypedCommand(String value) {
