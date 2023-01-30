@@ -69,7 +69,7 @@ public class Memory {
 				return TypedCommand.SUB;
 			} else if ("=".equals(value)) {
 				return TypedCommand.EQUAL;
-			} else if ("=".equals(value)) {
+			} else if (",".equals(value) && !currentText.contains(",")) {
 				return TypedCommand.COMMA;
 			}
 				
