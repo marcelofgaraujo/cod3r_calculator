@@ -5,6 +5,7 @@
 <li>Java Swing</li></ul>
 <h2>Achievements</h2>
 Strong use of Java Swing and its features.<br>
+Use of singleton pattern in memory entity.<br>
 Reinforcement of the use of observable pattern in Java.<br>
 Reinforcement of the use of functional interfaces and enums in Java.
 <h2>Running the project</h2>
