@@ -42,8 +42,11 @@ public class Memory {
 		} else if(typedCommand == TypedCommand.SIGNAL) {
 			if(currentText == "0") return;
 			currentText = currentText.contains("-") ? currentText.substring(1) : "-" + currentText;
-		} else if(typedCommand == TypedCommand.NUMBER || typedCommand == TypedCommand.COMMA) {
-			currentText = currentText.startsWith("0") ? currentText.substring(1) : currentText;
+		} else if(typedCommand == TypedCommand.NUMBER) {
+			currentText = currentText.startsWith("0") && !currentText.contains(",") ? currentText.substring(1) : currentText;
+			currentText = replace ? value : currentText + value;
+			replace = false;
+		} else if(typedCommand == TypedCommand.COMMA) {
 			currentText = replace ? value : currentText + value;
 			replace = false;
 		} else {
