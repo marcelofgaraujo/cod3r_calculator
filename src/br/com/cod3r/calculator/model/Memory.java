@@ -40,6 +40,7 @@ public class Memory {
 			replace = false;
 			lastOperation = null;
 		} else if(typedCommand == TypedCommand.SIGNAL) {
+			if(currentText == "") return;
 			currentText = currentText.contains("-") ? currentText.substring(1) : "-" + currentText;
 		} else if(typedCommand == TypedCommand.NUMBER || typedCommand == TypedCommand.COMMA) {
 			currentText = currentText.startsWith("0") ? currentText.substring(1) : currentText;
