@@ -10,8 +10,8 @@ public class Memory {
 	
 	private TypedCommand lastOperation = null;
 	private boolean replace = false;
-	private String bufferText = "";
-	private String currentText = "";
+	private String bufferText = "0";
+	private String currentText = "0";
 
 	private Memory() {
 	}
@@ -35,12 +35,12 @@ public class Memory {
 		if(typedCommand == null) {
 			return;
 		} else if(typedCommand == TypedCommand.RESET) {
-			currentText = "";
-			bufferText = "";
+			currentText = "0";
+			bufferText = "0";
 			replace = false;
 			lastOperation = null;
 		} else if(typedCommand == TypedCommand.SIGNAL) {
-			if(currentText == "") return;
+			if(currentText == "0") return;
 			currentText = currentText.contains("-") ? currentText.substring(1) : "-" + currentText;
 		} else if(typedCommand == TypedCommand.NUMBER || typedCommand == TypedCommand.COMMA) {
 			currentText = currentText.startsWith("0") ? currentText.substring(1) : currentText;
